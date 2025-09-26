@@ -56,11 +56,6 @@ export const routes: Routes = [
         title: 'Categories Page',
       },
       {
-        path: 'details/:slug/:id',
-        component: DetailsComponent,
-        title: 'Details Page',
-      },
-      {
         path: 'details/:id',
         component: DetailsComponent,
         title: 'Details Page',
