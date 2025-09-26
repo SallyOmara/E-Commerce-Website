@@ -36,7 +36,7 @@ export class CartService {
   checkoutSession(id: string | null, data: object): Observable<any> {
     return this.httpClient.post(
       environment.baseUrl +
-        `orders/checkout-session/${id}?url=http://localhost:4200`,
+        `orders/checkout-session/${id}?url=https://e-commerce-website-nine-mocha.vercel.app/allorders`,
       data
     );
   }
