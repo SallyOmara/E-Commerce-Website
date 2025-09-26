@@ -1,0 +1,86 @@
+<section class="py-10">
+  <div class="container text-[#018283] px-5 md:px-10 lg:px-15 xl:px-20">
+    <div class="order-part md:col-span-8">
+      <h2 class="text-4xl mb-5">
+        Order List
+        <span class="text-2xl text-[#FF7F50]"
+          >({{ orderList.length }} Orders)</span
+        >
+      </h2>
+      @if (orderList.length > 0) { @for (order of orderList; track $index) {
+      <div class="cart-part bg-[#ffffffb3] rounded-2xl p-8 shadow-lg mb-10">
+        <div class="order-data flex justify-between items-center">
+          <h3>
+            <span class="font-bold">Order ID :</span> {{ orderList[$index].id }}
+          </h3>
+          <p>
+            <span class="text-lg text-[#018283] font-bold">Total Price : </span>
+            ${{ orderList[$index].totalOrderPrice }}
+            <span class="text-lg text-[#FF7F50]"
+              >({{ orderList[$index].cartItems.length }} items)</span
+            >
+          </p>
+        </div>
+        <hr class="hor-line" />
+        @let oneOrder = orderList[$index]; @for (item of
+        orderList[$index].cartItems; track item.product._id) { @if (item !=
+        oneOrder.cartItems[0]) {
+        <hr class="hor-line" />
+        }
+
+        <div class="item flex justify-between items-center">
+          <div
+            class="details flex justify-start space-x-5 items-center w-[80%]"
+          >
+            <div class="img-part">
+              <img
+                [src]="item.product.imageCover"
+                class="w-35 border-2 border-opacity-50 border-[#02a29f59] rounded-2xl"
+                [alt]="item.product.title"
+              />
+            </div>
+            <div class="text-part">
+              <h4 class="text-xl">
+                {{ item.product.title }}
+              </h4>
+              <p class="text-light text-[#0183835c]">
+                {{ item.product.category.name }}
+              </p>
+              <p class="text-light text-[#0183835c] mt-5">
+                <span class="text-lg text-[#018283] font-bold">Brand : </span>
+                {{ item.product.brand.name }}
+              </p>
+            </div>
+          </div>
+          <div
+            class="price text-lg py-2 px-10 rounded-4xl text-[#018283] outline-3 outline-[#018283] block m-auto"
+          >
+            <p>{{ item.count }} x ${{ item.price }}</p>
+          </div>
+        </div>
+        }
+      </div>
+      } }
+    </div>
+    <!-- <div
+      class="summary-part md:col-span-4 bg-[#ffffffb3] rounded-2xl p-5 shadow-lg"
+    >
+      <h3 class="text-2xl mb-4">Order Summary</h3>
+      <hr class="hor-line" />
+      <div class="sum-part flex justify-between text-lg mb-5">
+        <p>Total Price</p>
+        <p>${{ cartDetails.totalCartPrice }}</p>
+      </div>
+      <button
+        class="btn px-30 sm:px-15 md:px-5 xl:px-10"
+        [routerLink]="
+          cartDetails.products.length > 0
+            ? ['/checkout', cartDetails._id]
+            : null
+        "
+      >
+        Proceed to Checkout
+      </button>
+    </div> -->
+  </div>
+</section>

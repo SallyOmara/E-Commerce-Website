@@ -1,0 +1,93 @@
+<section class="py-10">
+  <div
+    class="container grid md:grid-cols-12 items-start gap-10 text-[#018283] px-5 md:px-10 lg:px-15 xl:px-20"
+  >
+    <div class="order-part md:col-span-8">
+      <h2 class="text-4xl mb-5">
+        Shopping Cart
+        <span class="text-lg text-[#FF7F50]"
+          >({{ cartDetails.products.length }} items)</span
+        >
+      </h2>
+      @if (cartDetails.products.length > 0) {
+      <div class="cart-part bg-[#ffffffb3] rounded-2xl p-8 shadow-lg">
+        @for (item of cartDetails.products; track item.product._id) { @if(item
+        != cartDetails.products[0]){
+        <hr class="hor-line" />
+        }
+        <div class="item flex justify-between items-center">
+          <div class="details flex justify-start space-x-5 items-center">
+            <div
+              class="img-part cursor-pointer"
+              [routerLink]="['/details', item.product._id]"
+            >
+              <img
+                [src]="item.product.imageCover"
+                class="w-35 border-2 border-opacity-50 border-[#02a29f59] rounded-2xl"
+                [alt]="item.product.title"
+              />
+            </div>
+            <div class="text-part">
+              <h4
+                class="text-xl cursor-pointer"
+                [routerLink]="['/details', item.product._id]"
+              >
+                {{ item.product.title }}
+              </h4>
+              <div
+                class="add-remove flex flex-row justify-start items-center gap-5 mt-10"
+              >
+                <div
+                  class="add-rem flex space-x-8 items-center py-2 px-5 rounded-4xl hover:text-[#02a2a0] outline-3 outline-[#018283] hover:outline-[#02a2a0] transition-all duration-100 cursor-pointer"
+                >
+                  <i
+                    class="fa-solid fa-minus active:scale-90 ease-in-out"
+                    (click)="updateItemCount(item.product._id, item.count - 1)"
+                  ></i>
+                  <span class="font-medium">{{ item.count }}</span>
+                  <i
+                    class="fa-solid fa-plus active:scale-90 ease-in-out"
+                    (click)="updateItemCount(item.product._id, item.count + 1)"
+                  ></i>
+                </div>
+                <div>
+                  <button
+                    class="hover:text-[#02a2a0] transition-all duration-100 cursor-pointer active:scale-90 ease-in-out text-lg"
+                    (click)="removeItem(item.product._id)"
+                  >
+                    <i class="fa-solid fa-trash text-[#FF7F50]"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="price text-lg">
+            <p>${{ item.price }}</p>
+          </div>
+        </div>
+        }
+      </div>
+      }
+    </div>
+    <div
+      class="summary-part md:col-span-4 bg-[#ffffffb3] rounded-2xl p-5 shadow-lg"
+    >
+      <h3 class="text-2xl mb-4">Order Summary</h3>
+      <hr class="hor-line" />
+      <div class="sum-part flex justify-between text-lg mb-5">
+        <p>Total Price</p>
+        <p>${{ cartDetails.totalCartPrice }}</p>
+      </div>
+      <button
+        class="btn px-30 sm:px-15 md:px-5 xl:px-10"
+        [routerLink]="
+          cartDetails.products.length > 0
+            ? ['/checkout', cartDetails._id]
+            : null
+        "
+      >
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+</section>

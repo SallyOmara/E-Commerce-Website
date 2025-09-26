@@ -1,0 +1,153 @@
+<nav>
+  <div
+    class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-3 px-5 lg:px-20 mt-4"
+  >
+    <a
+      routerLink="/home"
+      class="flex items-center space-x-3 rtl:space-x-reverse"
+    >
+      <img src="./images/shoporaLogo.png" class="lg:w-45 w-40 md:w-30" alt="" />
+    </a>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-[#02a2a0] dark:text-gray-400 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+    <div class="hidden w-full grow md:flex md:w-auto" id="navbar-default">
+      @if(isLogin == true){
+      <ul
+        class="font-medium flex flex-col p-4 md:p-1 lg:p-2 mt-4 border-3 border-[#02a2a0] rounded-4xl md:flex-row md:mx-auto space-y-3 md:space-y-0 lg:space-x-5 md:space-x-2 rtl:space-x-reverse md:mt-0 dark:bg-[#015454] md:dark:bg-[#015454] dark:border-white"
+      >
+        <li>
+          <a
+            routerLink="/home"
+            routerLinkActive="bg-gradient-to-b from-[#02a2a0] to-[#018283] text-white hover:text-white rounded-full font-medium hover:outline-none"
+            class="block py-2 px-3 rounded-4xl md:px-3 xl:px-7 text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/products"
+            routerLinkActive="bg-gradient-to-b from-[#02a2a0] to-[#018283] text-white hover:text-white rounded-full font-medium hover:outline-none"
+            class="block py-2 px-3 rounded-4xl md:px-3 xl:px-7 text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100"
+            aria-current="page"
+            >Products</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/categories"
+            routerLinkActive="bg-gradient-to-b from-[#02a2a0] to-[#018283] text-white hover:text-white rounded-full font-medium hover:outline-none"
+            class="block py-2 px-3 rounded-4xl md:px-3 xl:px-7 text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100"
+            aria-current="page"
+            >Categories</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/brands"
+            routerLinkActive="bg-gradient-to-b from-[#02a2a0] to-[#018283] text-white hover:text-white rounded-full font-medium hover:outline-none"
+            class="block py-2 px-3 rounded-4xl md:px-3 xl:px-7 text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100"
+            aria-current="page"
+            >Brands</a
+          >
+        </li>
+      </ul>
+      }
+      <ul
+        class="font-medium flex flex-col items-center p-4 md:p-0 ms-auto mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-3 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+        @if(isLogin == false){
+        <li class="flex items-center space-x-2">
+          <a
+            class="block py-2 px-3 rounded-4xl md:px-3 cursor-pointer text-[#018283] hover:text-[#02a2a0] transition-colors duration-100"
+            aria-current="page"
+          >
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a
+            class="block py-2 px-3 rounded-4xl md:px-3 cursor-pointer text-[#018283] hover:text-[#02a2a0] transition-colors duration-100"
+            aria-current="page"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            class="block py-2 px-3 rounded-4xl md:px-3 cursor-pointer text-[#018283] hover:text-[#02a2a0] transition-colors duration-100"
+            aria-current="page"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            class="block py-2 px-3 rounded-4xl md:px-3 cursor-pointer text-[#018283] hover:text-[#02a2a0] transition-colors duration-100"
+            aria-current="page"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/login"
+            routerLinkActive="bg-gradient-to-b from-[#02a2a0] to-[#018283] text-white hover:text-white rounded-full font-medium hover:outline-none"
+            class="block py-2 px-3 rounded-4xl md:px-3 xl:px-7 mb-3 md:mb-0 text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100"
+            aria-current="page"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/register"
+            routerLinkActive="bg-gradient-to-b from-[#02a2a0] to-[#018283] text-white hover:text-white rounded-full font-medium hover:outline-none"
+            class="block py-2 px-3 rounded-4xl md:px-3 xl:px-7 text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100"
+            aria-current="page"
+            >Register</a
+          >
+        </li>
+        }@else {
+        <li>
+          <a
+            routerLink="/cart"
+            class="block relative py-2 px-3 md:px-3 xl:px-5 text-[#018283] hover:text-[#02a2a0] transition-all duration-100 text-3xl"
+            aria-current="page"
+            ><i class="fa-solid fa-cart-shopping"></i>
+            @if(count != 0){
+            <span
+              class="absolute bg-[#ffffffd5] text-[#018283] text-[12px] px-2 py-1 rounded-[50%] -top-1 end-3"
+              >{{ count }}</span
+            >
+            }
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="signOut()"
+            class="block py-2 px-3 rounded-4xl md:px-7 text-[#018283] hover:text-[#02a2a0] hover:outline-3 hover:outline-[#02a2a0] transition-all duration-100 cursor-pointer"
+            aria-current="page"
+            >SignOut</a
+          >
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

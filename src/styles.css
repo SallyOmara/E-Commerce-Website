@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+
+@utility container {
+  margin-inline: auto;
+}
+
+@layer components {
+  .btn {
+    @apply py-2 px-10 rounded-4xl text-[#018283] hover:text-[#02a2a0] outline-3 outline-[#018283] hover:outline-[#02a2a0] transition-all duration-100 cursor-pointer block m-auto active:scale-90 ease-in-out;
+  }
+  .main-input {
+    @apply block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-[#e6f4f1] dark:bg-gray-700 border-0 border-b-2 border-[#018283] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600;
+  }
+  .main-label {
+    @apply absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto;
+  }
+}
+
+.card {
+  @apply bg-[#0183833d] rounded-2xl  shadow-lg relative;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #e6f4f1;
+}
+
+:root {
+  --main-color: #0aad0a;
+}
+
+.btn-main:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+.btn-main:disabled:hover {
+  background-color: #ccc;
+}
+.btn-main:hover {
+  background-color: #11bd11;
+}
+
+.hor-line {
+  @apply opacity-15 my-6 border-1 border-[#018283];
+}
+
+.layer {
+  background-color: transparent;
+  color: transparent;
+  position: absolute;
+  inset: 0;
+  transition: all 0.5s;
+}
+.layer:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: transparent;
+}

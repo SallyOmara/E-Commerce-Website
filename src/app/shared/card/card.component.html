@@ -1,0 +1,35 @@
+<div class="card">
+  <div
+    [routerLink]="['/details', product.slug, product.id]"
+    class="cursor-pointer"
+  >
+    <div
+      class="cont-img p-4 -translate-y-12 hover:-translate-y-15 transition-all duration-400"
+    >
+      <img
+        [src]="product.imageCover"
+        class="w-full rounded-2xl opacity-90"
+        [alt]="product.title"
+      />
+    </div>
+    <div class="cont-text -translate-y-13 px-4">
+      <h3 class="font-medium text-white">{{ product.category.name }}</h3>
+      <h4 class="text-lg line-clamp-1 leading-loose text-[#018283]">
+        {{ product.title }}
+      </h4>
+      <div class="flex justify-between items-center text-white">
+        <span>${{ product.price }}</span>
+        <span
+          ><i class="fas fa-star text-yellow-600"></i
+          >{{ product.ratingsAverage }}</span
+        >
+      </div>
+    </div>
+  </div>
+  <button
+    (click)="addProductItemToCart(product.id)"
+    class="btn -translate-y-8 px-30 sm:px-15 md:px-5 xl:px-10"
+  >
+    Add To Cart
+  </button>
+</div>

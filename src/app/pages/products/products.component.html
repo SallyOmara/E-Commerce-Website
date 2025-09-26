@@ -1,0 +1,27 @@
+<section>
+  <input
+    type="search"
+    class="bg-white block mt-5 mx-auto w-[20%] md:w-[25%] lg:w-[30%] placeholder:text-[#018283] outline-[#01838347] placeholder:opacity-40 rounded-xl p-4"
+    placeholder="Search for..."
+    [(ngModel)]="text"
+  />
+  <div class="container p-5">
+    <div
+      class="parent mt-15 mx-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 gap-y-20"
+    >
+      @for (product of productList | paginate: { id: 'foo', itemsPerPage:
+      pageSize, currentPage: p, totalItems: total } | search : text; track
+      product.id) {
+      <app-card [product]="product" />
+      }
+    </div>
+    <div class="mt-10 text-center">
+      <pagination-controls
+        class="my-pagination"
+        id="foo"
+        (pageChange)="getAllProductsData($event)"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</section>

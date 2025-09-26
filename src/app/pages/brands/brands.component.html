@@ -1,0 +1,29 @@
+<section>
+  <div class="container p-5">
+    <h2 class="text-5xl text-[#018283] mt-10 font-stretch-90% mx-10">
+      Our Brands
+    </h2>
+    <div
+      class="parent mt-10 mx-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 gap-y-10"
+    >
+      @for (brand of allBrands ; track brand._id) {
+      <div>
+        <div
+          class="cont-img p-4 hover:-translate-y-5 transition-all duration-400"
+        >
+          <img
+            [src]="brand.image"
+            class="w-full rounded-2xl opacity-90"
+            [alt]="brand.name"
+          />
+        </div>
+        <div class="cont-text px-4">
+          <h4 class="text-lg leading-loose text-[#018283] text-center">
+            {{ brand.name }}
+          </h4>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
